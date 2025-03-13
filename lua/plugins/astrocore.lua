@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -16,7 +14,7 @@ return {
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
       diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
-      highlighturl = true, -- highlight URLs at start
+      highlighturl = false, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
@@ -27,16 +25,19 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
-        wrap = false, -- sets vim.opt.wrap
+        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+        wrap = true, -- sets vim.opt.wrap
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        gruvbox_material_foreground = "original",
+        gruvbox_material_disable_italic_comment = 1,
+        DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,node_modules"
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -46,24 +47,29 @@ return {
       n = {
         -- second key is the lefthand side of the map
 
-        -- navigate buffer tabs
-        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        -- navigate buffer tabs with `H` and `L`
+        L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
-        ["<Leader>bd"] = {
+        ["<Leader>bD"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
               function(bufnr) require("astrocore.buffer").close(bufnr) end
             )
           end,
-          desc = "Close buffer from tabline",
+          desc = "Pick to close",
         },
-
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
-
+        ["<Leader>b"] = { desc = "Buffers" },
+        -- quick save
+        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<Leader>fB"] = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", desc = "Find current buffer (not fuzzy)" },
+        ["<Leader>m"] = { name = "Misc" },
+        ["<Leader>mr"] = { "<Plug>RestNvim", desc = "Run HTTP request under the cursor" },
+      },
+      t = {
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },
