@@ -123,6 +123,16 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  desc = "Disable completions and enable spellcheck for gitcommit files",
+  group = my_acs,
+  pattern = "gitcommit",
+  callback = function()
+    require('cmp').setup.buffer { enabled = false } -- Disable completions
+    vim.opt.spell = true
+  end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   desc = "Use width 4 tabs and auto format on save in Go files",
   group = my_acs,
   pattern = "go",
