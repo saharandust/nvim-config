@@ -68,6 +68,7 @@ return {
         ["<Leader>fB"] = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", desc = "Find current buffer (not fuzzy)" },
         ["<Leader>m"] = { name = "Misc" },
         ["<Leader>mr"] = { "<Plug>RestNvim", desc = "Run HTTP request under the cursor" },
+        ["<Leader>ma"] = { "<cmd>CodeCompanionChat<CR>", desc = "Open Code Companion AI Chat" },
       },
       t = {
         -- setting a mapping to false will disable it
