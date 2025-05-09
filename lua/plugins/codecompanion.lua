@@ -13,12 +13,10 @@ return {
     'CodeCompanionCmd',
   },
   opts = {
+    log_level = "DEBUG", -- or "TRACE"
     adapters = {
       gemini = function()
         return require("codecompanion.adapters").extend("gemini", {
-          -- env = {
-          --   api_key = "cmd:op read op://personal/Gemini_API/credential --no-newline",
-          -- },
         })
       end,
     },
