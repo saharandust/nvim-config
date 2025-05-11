@@ -99,7 +99,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = my_acs,
   pattern = "text",
   callback = function()
-    require('cmp').setup.buffer { enabled = false } -- Disable completions
+    vim.b.completion = false -- Disable completions
   end
 })
 
@@ -108,7 +108,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = my_acs,
   pattern = "markdown",
   callback = function()
-    require('cmp').setup.buffer { enabled = false } -- Disable completions
+    vim.b.completion = false -- Disable completions
   end
 })
 
@@ -117,7 +117,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = my_acs,
   pattern = "mail",
   callback = function()
-    require('cmp').setup.buffer { enabled = false } -- Disable completions
+    vim.b.completion = false -- Disable completions
     vim.opt.spell = true
   end
 })
@@ -127,7 +127,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = my_acs,
   pattern = "gitcommit",
   callback = function()
-    require('cmp').setup.buffer { enabled = false } -- Disable completions
+    vim.b.completion = false -- Disable completions
     vim.opt.spell = true
   end
 })
