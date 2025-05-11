@@ -27,6 +27,7 @@ return {
           }, "\n"),
         },
       },
+      indent = { enabled = false },
     },
   },
 
