@@ -52,7 +52,9 @@ return {
   {
     'https://gitlab.com/itaranto/id3.nvim',
     version = '*',
-    config = function() require('id3').setup() end,
+    config = function() require('id3').setup({
+      mp3_tool = 'id3v2'
+    }) end,
   },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
