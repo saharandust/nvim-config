@@ -49,6 +49,11 @@ return {
     version = "*",
     opts = {},
   },
+  {
+    'https://gitlab.com/itaranto/id3.nvim',
+    version = '*',
+    config = function() require('id3').setup() end,
+  },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
