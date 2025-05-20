@@ -41,6 +41,9 @@ vim.opt.grepformat="%f:%l:%c:%m"
 -- When scrolling, set number of lines that appear above and below the cursor
 vim.opt.scrolloff = 6
 
+-- Enable `~` on nonexistent lines
+vim.opt.fillchars = {}
+
 --
 -- Set key bindings
 --
