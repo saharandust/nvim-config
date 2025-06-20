@@ -79,7 +79,7 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<Leader>gG", ":copen | :silent :grep! ")
 
 -- use <Leader>gg to find and replace with GrugFar
-vim.keymap.set("n", "<Leader>gg", "<cmd>GrugFar<CR>")
+-- vim.keymap.set("n", "<Leader>gg", "<cmd>GrugFar<CR>")
 
 --
 -- Autocommands

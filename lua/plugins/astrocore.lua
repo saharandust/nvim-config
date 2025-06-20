@@ -65,7 +65,19 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-        ["<Leader>fB"] = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", desc = "Find current buffer (not fuzzy)" },
+        ["<Leader>fB"] = {
+          function()
+            require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } })
+          end,
+          desc = "Find current buffer (grug-far)"
+        },
+        ["<Leader>fg"] = {
+          function()
+            require('grug-far').open()
+          end,
+          desc = "Find words (grug-far)"
+        },
+
         ["<Leader>m"] = { name = "Misc" },
         ["<Leader>mr"] = { "<Plug>RestNvim", desc = "Run HTTP request under the cursor" },
         ["<Leader>ma"] = { "<cmd>CodeCompanionChat<CR>", desc = "Open Code Companion AI Chat" },
