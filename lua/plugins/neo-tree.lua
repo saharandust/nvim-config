@@ -192,7 +192,8 @@ return {
           hide_gitignored = false,
           hide_by_name = {
             "node_modules",
-            "__pycache__"
+            "__pycache__",
+            ".git"
           }
         }
       },
