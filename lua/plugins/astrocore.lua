@@ -81,12 +81,7 @@ return {
         ["<Leader>m"] = { name = "Misc" },
         ["<Leader>mr"] = { "<Plug>RestNvim", desc = "Run HTTP request under the cursor" },
         ["<Leader>ma"] = { "<cmd>CodeCompanionChat<CR>", desc = "Open Code Companion AI Chat" },
-        ["<Leader>md"] = {
-          function()
-            require("dbee").open()
-          end,
-          desc = "Open DBee"
-        },
+        ["<Leader>md"] = { "<cmd>DBUI<CR>", desc = "Open dadbod-ui" },
       },
       t = {
         -- setting a mapping to false will disable it
