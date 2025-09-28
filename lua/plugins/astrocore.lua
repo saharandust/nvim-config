@@ -67,13 +67,13 @@ return {
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         ["<Leader>fB"] = {
           function()
-            require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } })
+            require('grug-far').open({ prefills = { paths = vim.fn.expand("%"), flags = "-i" } })
           end,
           desc = "Find current buffer (grug-far)"
         },
         ["<Leader>fg"] = {
           function()
-            require('grug-far').open()
+            require('grug-far').open({ prefills = { flags = "-i" } })
           end,
           desc = "Find words (grug-far)"
         },
