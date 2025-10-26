@@ -42,6 +42,7 @@ return {
   { 'will133/vim-dirdiff', lazy = true,
     cmd = { 'DirDiff' },
   },
+  { "sindrets/diffview.nvim" },
   { "sainnhe/gruvbox-material", lazy = false },
   { "MattesGroeger/vim-bookmarks", lazy = false },
   {
