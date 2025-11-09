@@ -57,6 +57,10 @@ return {
       mp3_tool = 'id3v2'
     }) end,
   },
+  {
+    'RaafatTurki/hex.nvim',
+     config = function() require("hex").setup() end,
+  },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
