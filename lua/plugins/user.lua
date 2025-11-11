@@ -60,11 +60,6 @@ return {
   {
     'RaafatTurki/hex.nvim',
     config = function() require("hex").setup() end,
-    cmd = {
-      'HexAssemble',
-      'HexDump',
-      'HexToggle',
-    },
   },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
